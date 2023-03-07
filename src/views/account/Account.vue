@@ -18,6 +18,7 @@
                 position-absolute
                 translate-middle
                 bottom-0
+                
                 start-100
                 mb-6
                 bg-success
