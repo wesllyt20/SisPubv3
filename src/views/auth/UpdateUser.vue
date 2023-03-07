@@ -18,12 +18,12 @@
       <!--end::Heading-->
 
       <!--begin::SEPARADOR EJEMPLO
-      <div class="d-flex align-items-center mb-10">
-        <div class="border-bottom border-gray-300 mw-50 w-100"></div>
-        <span class="fw-bold text-gray-400 fs-7 mx-2">OR</span>
-        <div class="border-bottom border-gray-300 mw-50 w-100"></div>
-      </div>
-      end::Separator-->
+        <div class="d-flex align-items-center mb-10">
+          <div class="border-bottom border-gray-300 mw-50 w-100"></div>
+          <span class="fw-bold text-gray-400 fs-7 mx-2">OR</span>
+          <div class="border-bottom border-gray-300 mw-50 w-100"></div>
+        </div>
+        end::Separator-->
 
       <!--begin::Input group-->
       <div class="row fv-row mb-7">
@@ -216,15 +216,24 @@
             ></span>
           </span>
         </button>
+        <a
+          id="btCancel"
+          href="#/crafted/basicflow/list-users"
+          class="btn btn-lg btn-primary mt-n13"
+        >
+          <span> Cancelar</span>
+        </a>
       </div>
+
       <!--end::Actions-->
     </Form>
+
     <!--end::Form-->
   </div>
   <!--end::Wrapper-->
 </template>
-
-<script lang="ts">
+  
+  <script lang="ts">
 import { defineComponent, ref } from "vue";
 import { ErrorMessage, Field, Form } from "vee-validate";
 import * as Yup from "yup";
@@ -236,8 +245,8 @@ import Swal from "sweetalert2/dist/sweetalert2.min.js";
 export default defineComponent({
   data() {
     return {
-      cargo: '',
-      tiUser:'',
+      cargo: "",
+      tiUser: "",
     };
   },
 
@@ -252,23 +261,36 @@ export default defineComponent({
     const router = useRouter();
 
     const submitButton = ref<HTMLElement | null>(null);
-      const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?ñÑ¬]).{8,}$/;
+    const strongPasswordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?ñÑ¬]).{8,}$/;
     const registration = Yup.object().shape({
-      name: Yup.string().required("Es necesario llenar esta casilla.").label("First Name"),
-      surname: Yup.string().required("Es necesario llenar esta casilla.").label("Second Name"),
+      name: Yup.string()
+        .required("Es necesario llenar esta casilla.")
+        .label("First Name"),
+      surname: Yup.string()
+        .required("Es necesario llenar esta casilla.")
+        .label("Second Name"),
       email: Yup.string()
         .email("Ingrese un correo valido.")
         .required("Es necesario llenar esta casilla.")
         .label("Email"),
       cargo: Yup.string().required("Seleccione un cargo.").label("Cargo"),
-      tiUser: Yup.string().required("Seleccione un tipo de usuario.").label("Usuario"),
+      tiUser: Yup.string()
+        .required("Seleccione un tipo de usuario.")
+        .label("Usuario"),
       cell: Yup.string()
         .min(9, "La contraseña debe tener al menos 9 caracteres.")
         .max(9)
         .required("Es necesario llenar esta casilla.")
         .label("Celular"),
-      password: Yup.string().min(8).required("Es necesario llenar esta casilla.").label("Password")
-      .matches(strongPasswordRegex, "La contraseña debe tener al menos 8 digitos, una mayúscula, una minúscula, un número y un simbolo."),
+      password: Yup.string()
+        .min(8)
+        .required("Es necesario llenar esta casilla.")
+        .label("Password")
+        .matches(
+          strongPasswordRegex,
+          "La contraseña debe tener al menos 8 digitos, una mayúscula, una minúscula, un número y un simbolo."
+        ),
       cpassword: Yup.string()
         .min(4)
         .required("Es necesario llenar esta casilla.")
@@ -299,7 +321,7 @@ export default defineComponent({
               },
             }).then(function () {
               // Go to page after successfully login
-             router.push({ name: "list-users" }); //<- Esto es para ingresar a travez de router ingresar al dashboard
+              router.push({ name: "list-users" }); //<- Esto es para ingresar a travez de router ingresar al dashboard
             });
           })
           .catch(() => {
@@ -326,9 +348,13 @@ export default defineComponent({
   },
 });
 </script>
-<style>
+  <style>
 #titSigup {
   color: #0000af !important;
   font-weight: bold;
 }
+#btCancel {
+  margin-left: 25px !important;
+}
 </style>
+  

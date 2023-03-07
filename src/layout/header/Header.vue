@@ -19,7 +19,7 @@
           id="kt_aside_mobile_toggle"
         >
           <span class="svg-icon svg-icon-2x mt-1">
-            <inline-svg src="media/icons/duotune/abstract/abs015.svg" />
+            <img src="media/icons/duotune/general/menuOption.svg" />
           </span>
         </div>
       </div>
@@ -28,7 +28,8 @@
       <!--begin::Mobile logo-->
       <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
         <a href="#" class="d-lg-none">
-          <img alt="Logo" src="media/logos/logo-2.svg" class="h-30px" />
+          <img alt="Logo" src="media/logos/logoEscudo.png" class="h-40px" />
+          <img id="logesPe" alt="Logo" src="media/logos/logosolo.png" class="h-40px " />
         </a>
       </div>
       <!--end::Mobile logo-->
@@ -90,3 +91,8 @@ export default defineComponent({
   },
 });
 </script>
+<style>
+#logesPe{
+  margin-left: 10px !important;
+}
+</style>

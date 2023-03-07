@@ -21,22 +21,16 @@
       <div class="menu-content d-flex align-items-center px-3">
         <!--begin::Avatar-->
         <div class="symbol symbol-50px me-5">
-          <img alt="Logo" src="media/avatars/150-26.jpg" />
+          <img alt="Logo" src="media/avatars/150-11.jpg" />
         </div>
         <!--end::Avatar-->
 
         <!--begin::Username-->
         <div class="d-flex flex-column">
-          <div class="fw-bolder d-flex align-items-center fs-5">
-            Max Smith
-            <span
-              class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2"
-              >Pro</span
-            >
+          <div class="fw-bolder text-muted d-flex align-items-center fs-5">
+            María Rosa
           </div>
-          <a href="#" class="fw-bold text-muted text-hover-primary fs-7"
-            >max@kt.com</a
-          >
+          <a class="text-dark fw-bolder fs-3 align-right">OTIDG</a>
         </div>
         <!--end::Username-->
       </div>
@@ -50,7 +44,7 @@
     <!--begin::Menu item-->
     <div class="menu-item px-5">
       <router-link to="/pages/profile/overview" class="menu-link px-5">
-        My Profile
+        Mi perfil
       </router-link>
     </div>
     <!--end::Menu item-->
@@ -58,10 +52,10 @@
     <!--begin::Menu item-->
     <div class="menu-item px-5">
       <router-link to="/pages/profile/overview" class="menu-link px-5">
-        <span class="menu-text">My Projects</span>
+        <span class="menu-text">Incidencias</span>
         <span class="menu-badge">
           <span class="badge badge-light-danger badge-circle fw-bolder fs-7"
-            >3</span
+            >1</span
           >
         </span>
       </router-link>
@@ -76,7 +70,7 @@
       data-kt-menu-flip="center, top"
     >
       <router-link to="/pages/profile/overview" class="menu-link px-5">
-        <span class="menu-title">My Subscription</span>
+        <span class="menu-title">Opciones</span>
         <span class="menu-arrow"></span>
       </router-link>
 
@@ -155,7 +149,7 @@
     <!--begin::Menu item-->
     <div class="menu-item px-5">
       <router-link to="/pages/profile/overview" class="menu-link px-5">
-        My Statements
+        Notificaciones
       </router-link>
     </div>
     <!--end::Menu item-->
@@ -173,7 +167,7 @@
     >
       <router-link to="/pages/profile/overview" class="menu-link px-5">
         <span class="menu-title position-relative">
-          Language
+          Lenguaje
           <span
             class="
               fs-8
@@ -234,7 +228,7 @@
                 alt="metronic"
               />
             </span>
-            Spanish
+            Español
           </a>
         </div>
         <!--end::Menu item-->
@@ -306,14 +300,14 @@
     <!--begin::Menu item-->
     <div class="menu-item px-5 my-1">
       <router-link to="/pages/profile/overview" class="menu-link px-5">
-        Account Settings
+        Opciones de cuenta
       </router-link>
     </div>
     <!--end::Menu item-->
 
     <!--begin::Menu item-->
     <div class="menu-item px-5">
-      <a @click="signOut()" class="menu-link px-5"> Sign Out </a>
+      <a @click="signOut()" class="menu-link px-5"> Salir </a>
     </div>
     <!--end::Menu item-->
   </div>
@@ -337,7 +331,7 @@ export default defineComponent({
 
     i18n.locale.value = localStorage.getItem("lang")
       ? (localStorage.getItem("lang") as string)
-      : "en";
+      : "es";
 
     const countries = {
       en: {

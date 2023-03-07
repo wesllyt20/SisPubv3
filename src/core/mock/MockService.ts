@@ -1,5 +1,6 @@
 import { App } from "vue";
 import MockAdapter from "axios-mock-adapter";
+import axios from "axios";
 
 type User = {
   name: string;
@@ -22,7 +23,7 @@ const users: Array<User> = [
     name: "Name",
     surname: "Surname",
     email: "admin2@demo.com",
-    password: "demo",
+    password: "demo2",
     token: "fgj8fjdfk43",
   },
 ];

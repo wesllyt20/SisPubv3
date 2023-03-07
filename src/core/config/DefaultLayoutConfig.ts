@@ -8,14 +8,14 @@ const config: LayoutConfigTypes = {
     type: "default",
     primaryColor: "#009EF7",
     logo: {
-      dark: "media/logos/logo-1-dark.svg",
-      light: "media/logos/logo-1.svg",
+      dark: "media/logos/logo_igp.png",
+      light: "media/logos/logo_igp.png",
     },
   },
   loader: {
-    logo: "media/logos/logo-1-dark.svg",
+    logo: "media/logos/logo_igp.png",
     display: true,
-    type: "default",
+    type: "spinner-logo",
   },
   scrollTop: {
     display: true,
@@ -39,7 +39,7 @@ const config: LayoutConfigTypes = {
   },
   aside: {
     display: true,
-    theme: "dark",
+    theme: "light",
     fixed: true,
     menuIcon: "svg",
     minimized: false,
