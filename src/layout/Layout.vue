@@ -1,8 +1,7 @@
 <template>
   <KTLoader v-if="loaderEnabled" :logo="loaderLogo"></KTLoader>
 
-  <!-- begin:: Body MAÑANAAAAAAA ES XD-->
-  <div class="page d-flex flex-row flex-column-fluid">
+  <div class="page flex-row flex-column-fluid">
     <!-- begin:: Aside Left -->
     <KTAside
       v-if="asideEnabled"
@@ -11,20 +10,12 @@
     ></KTAside>
     <!-- end:: Aside Left -->
 
-    <div id="kt_wrapper" class="d-flex flex-column flex-row-fluid wrapper">
+    <div id="kt_wrapper" class="d-flex flex-column wrapper">
       <KTHeader :title="pageTitle"></KTHeader>
 
       <!-- begin:: Content -->
       <div id="kt_content" class="content d-flex flex-column flex-column-fluid">
-        <!-- begin:: Content Head -->
-        <KTToolbar
-          v-if="subheaderDisplay"
-          :breadcrumbs="breadcrumbs"
-          :title="pageTitle"
-        />
-        <!-- end:: Content Head -->
-
-        <!-- begin:: Content Body -->
+     
         <div class="post d-flex flex-column-fluid">
           <div
             :class="{
@@ -61,7 +52,6 @@ import KTAside from "@/layout/aside/Aside.vue";
 import KTHeader from "@/layout/header/Header.vue";
 import KTFooter from "@/layout/footer/Footer.vue";
 import HtmlClass from "@/core/services/LayoutService";
-import KTToolbar from "@/layout/toolbar/Toolbar.vue";
 import KTMobilePageTitle from "@/layout/toolbar/MobilePageTitle.vue";
 import KTScrollTop from "@/layout/extras/ScrollTop.vue";
 import KTUserMenu from "@/layout/header/partials/ActivityDrawer.vue";
@@ -92,7 +82,6 @@ export default defineComponent({
     KTAside,
     KTHeader,
     KTFooter,
-    KTToolbar,
     KTScrollTop,
     KTCreateApp,
     KTUserMenu,

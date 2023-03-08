@@ -70,9 +70,14 @@ export default ({
 </script>
 <style>
 #dividermenu {
-  height: 70%;
-  margin-top: 10px;
+  height: 50%;
+  margin-top: 20px;
   margin-left: 15px;
+
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: #D9D9D9 !important;
+  line-height: 36px;
 }
 #texto-desaparece {
   font-size: 35px;
