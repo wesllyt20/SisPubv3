@@ -14,181 +14,64 @@
     <!--begin::Menu-->
     <div
       id="#kt_header_menu"
-      class="
-        menu
-        menu-column
-        menu-title-gray-800
-        menu-state-title-primary
-        menu-state-icon-primary
-        menu-state-bullet-primary
-        menu-arrow-gray-500
-      "
+      class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500"
       data-kt-menu="true"
     >
-      <template v-for="(item, i) in MainMenuConfig" :key="i">
-        <div v-if="item.heading" class="menu-item">
-          <div class="menu-content pt-8 pb-2">
-            <span
-              id="headingText"
-              class="menu-section text-uppercase fs-8 ls-1"
-            >
-              {{ translate(item.heading) }}
-            </span>
+      <div class="menu-item">
+        <!-- CHECK BOX -->
+        <div class="group" role="group">
+          <div class="d-flex justify-content-between align-items-center">
+            <h5 class="card-title mb-0">Nombre:</h5>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                v-model="isChecked1"
+                v-on:change="updateCheckboxes(1)"
+              />
+            </div>
+          </div>
+          <div class="block d-flex justify-content-between align-items-center">
+            <h5 class="card-title mb-0">Nombre:</h5>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                v-model="isChecked2"
+                v-on:change="updateCheckboxes(2)"
+              />
+            </div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <h5 class="card-title mb-0">Nombre:</h5>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                v-model="isChecked3"
+                v-on:change="updateCheckboxes(3)"
+              />
+            </div>
           </div>
         </div>
-        <template v-for="(menuItem, j) in item.pages" :key="j">
-          <template v-if="menuItem.heading">
-            <div class="menu-item">
-              <router-link
-                v-slot="{ href, navigate, isActive, isExactActive }"
-                :to="menuItem.route"
-              >
-                <a
-                  :class="[isActive && 'active', isExactActive && 'active']"
-                  :href="href"
-                  class="menu-link"
-                  @click="navigate"
-                >
-                  <span
-                    v-if="menuItem.svgIcon || menuItem.fontIcon"
-                    class="menu-icon"
-                  >
-                    <i
-                      v-if="asideMenuIcons === 'font'"
-                      :class="menuItem.fontIcon"
-                      class="bi fs-3"
-                    ></i>
-                    <span
-                      v-else-if="asideMenuIcons === 'svg'"
-                      class="rellenoMenu svg-icon svg-icon-2"
-                    >
-                      <inline-svg :src="menuItem.svgIcon" />
-                    </span>
-                  </span>
-                  <span  class="rellenoMenu menu-title">{{
-                    translate(menuItem.heading)
-                  }}</span>
-                </a>
-              </router-link>
-            </div>
-          </template>
-          <div
-            v-if="menuItem.sectionTitle"
-            :class="{ show: hasActiveChildren(menuItem.route) }"
-            class="menu-item menu-accordion"
-            data-kt-menu-sub="accordion"
-            data-kt-menu-trigger="click"
-          >
-            <span class="menu-link">
-              <span
-                v-if="menuItem.svgIcon || menuItem.fontIcon"
-                class="menu-icon"
-              >
-                <i
-                  v-if="asideMenuIcons === 'font'"
-                  :class="menuItem.fontIcon"
-                  class="bi fs-3"
-                ></i>
-                <span
-                  v-else-if="asideMenuIcons === 'svg'"
-                  class="rellenoMenu svg-icon svg-icon-2"
-                >
-                  <inline-svg :src="menuItem.svgIcon" />
-                </span>
-              </span>
-              <span class="rellenoMenu menu-title">{{
-                translate(menuItem.sectionTitle)
-              }}</span>
-              <span class="menu-arrow"></span>
-            </span>
-            <div
-              :class="{ show: hasActiveChildren(menuItem.route) }"
-              class="rellenoMenu menu-sub menu-sub-accordion"
-            >
-              <template v-for="(item2, k) in menuItem.sub" :key="k">
-                <div v-if="item2.heading" class="menu-item">
-                  <router-link
-                    v-slot="{ href, navigate, isActive, isExactActive }"
-                    :to="item2.route"
-                  >
-                    <a
-                      :class="[isActive && 'active', isExactActive && 'active']"
-                      :href="href"
-                      class="menu-link"
-                      @click="navigate"
-                    >
-                      <span class="rellenoMenu menu-bullet">
-                        <span class="bullet bullet-dot"></span>
-                      </span>
-                      <span class="rellenoMenu menu-title">{{
-                        translate(item2.heading)
-                      }}</span>
-                    </a>
-                  </router-link>
-                </div>
-                <div
-                  v-if="item2.sectionTitle"
-                  :class="{ show: hasActiveChildren(item2.route) }"
-                  class="menu-item menu-accordion"
-                  data-kt-menu-sub="accordion"
-                  data-kt-menu-trigger="click"
-                >
-                  <span class="menu-link">
-                    <span class="menu-bullet">
-                      <span class="bullet bullet-dot"></span>
-                    </span>
-                    <span class="menu-title">{{
-                      translate(item2.sectionTitle)
-                    }}</span>
-                    <span class="menu-arrow"></span>
-                  </span>
-                  <div
-                    :class="{ show: hasActiveChildren(item2.route) }"
-                    class="menu-sub menu-sub-accordion"
-                  >
-                    <template v-for="(item3, k) in item2.sub" :key="k">
-                      <div v-if="item3.heading" class="menu-item">
-                        <router-link
-                          v-slot="{ href, navigate, isActive, isExactActive }"
-                          :to="item3.route"
-                        >
-                          <a
-                            class="menu-link"
-                            :class="[
-                              isActive && 'active',
-                              isExactActive && 'active',
-                            ]"
-                            :href="href"
-                            @click="navigate"
-                          >
-                            <span class="menu-bullet">
-                              <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">{{
-                              translate(item3.heading)
-                            }}</span>
-                          </a>
-                        </router-link>
-                      </div>
-                    </template>
-                  </div>
-                </div>
-              </template>
-            </div>
+        <!--FIN CHECKBOX-->
+
+        <div class="menu-content pt-8 pb-2">
+          <span class="menu-section text-uppercase fs-8 ls-1"> Titulo</span>
+
+          <div class="menu-item menu-accordion">
+            <span class="menu-section rellenoMenu"> Hola que onda:v</span>
           </div>
-        </template>
-      </template>
-      <div class="menu-item"> 
+        </div>
+      </div>
+
+      <div class="menu-item">
         <div class="menu-content">
           <div class="separator mx-1 my-4"></div>
         </div>
       </div>
       <div class="menu-item">
-        <a
-          class="menu-link"
-          href="ingresartexto de actualizaciones"
-        >
-          
+        <a class="menu-link" href="ingresartexto de actualizaciones">
           <span id="cambioslog" class="menu-title"
             >{{ translate("changelog") }} 1.0.0-alpha.1</span
           >
@@ -197,43 +80,6 @@
     </div>
     <!--end::Menu-->
   </div>
-  <!--
-<template>
-  <div
-    id="kt_aside_menu_wrapper"
-    ref="scrollElRef"
-    class="hover-scroll-overlay-y my-5 my-lg-5"
-    data-kt-scroll="true"
-    data-kt-scroll-activate="{default: false, lg: true}"
-    data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer"
-    data-kt-scroll-height="auto"
-    data-kt-scroll-offset="0"
-    data-kt-scroll-wrappers="#kt_aside_menu"
-  >
-    <div
-      id="#kt_header_menu"
-      class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500"
-      data-kt-menu="true"
-    >
-      <div class="menu-item">
-        <div class="menu-content">
-          
-          <span> Hola</span>
-
-          <div class="separator mx-1 my-4"></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <a class="menu-link" href="ingresartexto de actualizaciones">
-          <span id="cambioslog" class="menu-title"
-            >{{ translate("changelog") }} 3.0.0-alpha.1</span
-          >
-        </a>
-      </div>
-    </div>
-  </div>
-</template>
-  -->
 </template>
 
 <style lang="scss">
@@ -260,10 +106,10 @@
   color: #0000af;
   font-size: 16px !important;
 }
-.rellenoMenu{
-  margin-left: 10px;
+.rellenoMenu {
+  margin-left: 15px;
 }
-#cambioslog{
+#cambioslog {
   font-size: 10px;
 }
 </style>
@@ -278,6 +124,27 @@ import { asideMenuIcons } from "@/core/helpers/config";
 import MainMenuConfig from "@/core/config/MainMenuConfig";
 
 export default defineComponent({
+  data() {
+    return {
+      isChecked1: true,
+      isChecked2: false,
+      isChecked3: false,
+    };
+  },
+  methods: {
+    updateCheckboxes(checkedBoxNumber) {
+      if (checkedBoxNumber === 1) {
+        this.isChecked2 = false;
+        this.isChecked3 = false;
+      } else if (checkedBoxNumber === 2) {
+        this.isChecked1 = false;
+        this.isChecked3 = false;
+      } else if (checkedBoxNumber === 3) {
+        this.isChecked1 = false;
+        this.isChecked2 = false;
+      }
+    },
+  },
   name: "kt-menu",
   components: {},
   setup() {
@@ -309,7 +176,7 @@ export default defineComponent({
       hasActiveChildren,
       MainMenuConfig,
       asideMenuIcons,
-            translate,
+      translate,
     };
   },
 });

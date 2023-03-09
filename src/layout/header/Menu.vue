@@ -1,20 +1,6 @@
 <template>
   <div
-    class="
-      menu
-      menu-lg-rounded
-      menu-column
-      menu-lg-row
-      menu-state-bg
-      menu-title-gray-700
-      menu-state-title-primary
-      menu-state-icon-primary
-      menu-state-bullet-primary
-      menu-arrow-gray-400
-      fw-bold
-      my-5 my-lg-0
-      align-items-stretch
-    "
+    class="menu menu-lg-rounded menu-column menu-lg-row menu-state-bg menu-title-gray-700 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-400 fw-bold my-5 my-lg-0 align-items-stretch"
     id="#kt_header_menu"
     data-kt-menu="true"
   >
@@ -33,9 +19,7 @@
       />
     </a>
     <div id="dividermenu" class="border border-vertical"></div>
-    <a id="texto-desaparece"
-      >{{ translate("sispub") }}</a
-    >
+    <a id="texto-desaparece">{{ translate("sispub") }}</a>
     <div class="vr vr-blurry"></div>
   </div>
 
@@ -43,17 +27,15 @@
 </template>
 
 <script lang="ts">
-
 import { useI18n } from "vue-i18n";
 
-
-export default ({
+export default {
   name: "menu",
   components: {},
   setup() {
     const { t, te } = useI18n();
 
-      const translate = (text) => {
+    const translate = (text) => {
       if (te(text)) {
         return t(text);
       } else {
@@ -61,12 +43,11 @@ export default ({
       }
     };
 
-
     return {
-      translate
+      translate,
     };
   },
-});
+};
 </script>
 <style>
 #dividermenu {
@@ -76,19 +57,25 @@ export default ({
 
   border-width: 1px !important;
   border-style: solid !important;
-  border-color: #D9D9D9 !important;
+  border-color: #d9d9d9 !important;
   line-height: 36px;
 }
 #texto-desaparece {
-  font-size: 35px;
+  font-size: 30px;
   color: #0000af;
-  margin-top: 10px;
+  margin-top: 14px;
   margin-left: 20px;
   font-weight: 300;
 }
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1472px) {
   #texto-desaparece {
     display: none;
+  }
+  #texto-desaparece::after {
+    content: "Sispubv3";
+    display: inline-block;
+    color: #000; /* color del texto */
+    font-size: 30px; /* tamaño de fuente */
   }
 }
 #minam {
@@ -103,7 +90,8 @@ export default ({
 }
 
 @media screen and (max-width: 990px) {
-  #igplog, #minam {
+  #igplog,
+  #minam {
     display: none;
   }
 }
