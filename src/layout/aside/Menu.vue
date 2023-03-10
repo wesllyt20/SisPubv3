@@ -19,46 +19,63 @@
     >
       <div class="menu-item">
         <!-- CHECK BOX -->
-        <div class="group" role="group">
-          <div class="d-flex justify-content-between align-items-center">
-            <h5 class="card-title mb-0">Nombre:</h5>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                v-model="isChecked1"
-                v-on:change="updateCheckboxes(1)"
-              />
-            </div>
-          </div>
-          <div class="block d-flex justify-content-between align-items-center">
-            <h5 class="card-title mb-0">Nombre:</h5>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                v-model="isChecked2"
-                v-on:change="updateCheckboxes(2)"
-              />
-            </div>
-          </div>
-          <div class="d-flex justify-content-between align-items-center">
-            <h5 class="card-title mb-0">Nombre:</h5>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                v-model="isChecked3"
-                v-on:change="updateCheckboxes(3)"
-              />
-            </div>
-          </div>
-        </div>
+
         <!--FIN CHECKBOX-->
-
+        <div class="d-grid gap-2 col-6 mx-auto">
+          <button id="bPub" class="btn btn-primary btn-lg" type="button">
+            Publicar evento
+          </button>
+        </div>
         <div class="menu-content pt-8 pb-2">
-          <span class="menu-section text-uppercase fs-8 ls-1"> Titulo</span>
-
+          <img
+            class="iMenu"
+            src="media/icons/duotune/general/ico_Pub.svg"
+            alt=""
+          />
+          <span class="tiMenu ls-1"> Publicar</span>
+          <div class="chMenu group menu-section fs-8 px-3" role="group">
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="card-title mb-0">Evento</h5>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  v-model="isChecked1"
+                  v-on:change="updateCheckboxes(1)"
+                />
+              </div>
+            </div>
+            <div
+              class="block d-flex justify-content-between align-items-center"
+            >
+              <h5 class="card-title mb-0">Simulacro</h5>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  v-model="isChecked2"
+                  v-on:change="updateCheckboxes(2)"
+                />
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="card-title mb-0">Simulación</h5>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  v-model="isChecked3"
+                  v-on:change="updateCheckboxes(3)"
+                />
+              </div>
+            </div>
+          </div>
+          <img
+            class="iMenu"
+            src="media/icons/duotune/general/ico_Bell.svg"
+            alt=""
+          />
+          <span class="tiMenu ls-1"> Canales</span>
           <div class="menu-item menu-accordion">
             <span class="menu-section rellenoMenu"> Hola que onda:v</span>
           </div>
@@ -111,6 +128,38 @@
 }
 #cambioslog {
   font-size: 10px;
+}
+.d-grid {
+  width: 195.62px;
+  margin: 0 auto; /* Establece los márgenes izquierdo y derecho automáticos para centrar el elemento */
+}
+
+#bPub {
+  width: 100%; /* Establece el ancho de los botones al 100% del contenedor */
+  background-color: #0075ff;
+  border-radius: 6px;
+}
+.tiMenu {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 24px;
+  color: #0000af;
+}
+.iMenu {
+  margin-bottom: 4px;
+}
+.card-title {
+  margin-left: 20px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 15px;
+
+  color: #192024;
+}
+.chMenu{
+  
 }
 </style>
 
