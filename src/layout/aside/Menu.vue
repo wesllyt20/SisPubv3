@@ -38,7 +38,7 @@
             alt=""
           />
           <span class="tiMenu ls-1"> Publicar</span>
-          <div class="chMenu  menu-section fs-8 px-3" >
+          <div class="chMenu menu-section fs-8 px-3">
             <div class="d-flex justify-content-between align-items-center">
               <span v-bind:style="{ color: evnt1 }" class="card-title mb-0"
                 >Evento</span
@@ -91,10 +91,45 @@
           />
           <span class="tiMenu ls-1"> Canales</span>
           <div class="menu-item menu-accordion">
+            <!--GOBIERNO-->
             <span class="subTit ls-1"> Gobierno :</span>
-            <Btninstitute image="../media/logos/intitutos/ACELDAT.svg" text="DHN (principal)" colcir="#FFDD00"></Btninstitute>
-       
+            <template v-for="item in gob" :key="item.image">
+              <Btninstitute
+                :image="item.image"
+                :text="item.text"
+                :colcir="item.colcir"
+              ></Btninstitute>
+            </template>
 
+            <!--INSTITUCIONALES-->
+            <span class="subTit ls-1"> Institucionales :</span>
+            <template v-for="item in inst" :key="item.image">
+              <Btninstitute
+                :image="item.image"
+                :text="item.text"
+                :colcir="item.colcir"
+              ></Btninstitute>
+            </template>
+
+            <!--PLATAFORMAS-->
+            <span class="subTit ls-1"> Plataformas :</span>
+            <template v-for="item in plat" :key="item.image">
+              <Btninstitute
+                :image="item.image"
+                :text="item.text"
+                :colcir="item.colcir"
+              ></Btninstitute>
+            </template>
+
+            <!--OTRAS FUENTES-->
+            <span class="subTit ls-1"> Otras fuentes :</span>
+            <template v-for="item in ofuen" :key="item.image">
+              <Btninstitute
+                :image="item.image"
+                :text="item.text"
+                :colcir="item.colcir"
+              ></Btninstitute>
+            </template>
           </div>
         </div>
       </div>
@@ -123,7 +158,7 @@ import { ScrollComponent } from "@/assets/ts/components/_ScrollComponent";
 import { MenuComponent } from "@/assets/ts/components/MenuComponent";
 import { asideMenuIcons } from "@/core/helpers/config";
 import MainMenuConfig from "@/core/config/MainMenuConfig";
-import Btninstitute from "@/components/modals/general/btnInstitute.vue"
+import Btninstitute from "@/components/modals/general/btnInstitute.vue";
 
 export default defineComponent({
   data() {
@@ -170,16 +205,111 @@ export default defineComponent({
       }
     },
   },
-  watch: {
-    isChecked1(val, old) {
-      console.log("new: ", val), console.log("older: ", old);
-    },
-  },
   name: "kt-menu",
   components: {
-    Btninstitute
+    Btninstitute,
   },
   setup() {
+    const gob = [
+      {
+        text: "DHN (principal)",
+        image: "../media/logos/intitutos/ACELDAT.svg",
+        colcir: "#009900",
+      },
+      {
+        text: "DHN (alterno)",
+        image: "../media/logos/intitutos/ACELDAT.svg",
+        colcir: "#009900",
+      },
+      {
+        text: "INDECI",
+        image: "../media/logos/intitutos/INDECI.svg",
+        colcir: "#FF3D00",
+      },
+    ];
+
+    const inst = [
+      {
+        text: "Facebook - IGP",
+        image: "../media/logos/intitutos/FACE.svg",
+        colcir: "#009900",
+      },
+      {
+        text: "Facebook - CENSIS",
+        image: "../media/logos/intitutos/FACE.svg",
+        colcir: "#009900",
+      },
+      {
+        text: "Twitter - IGP",
+        image: "../media/logos/intitutos/TW.svg",
+        colcir: "#009900",
+      },
+      {
+        text: "Twitter - CENSIS",
+        image: "../media/logos/intitutos/TW.svg",
+        colcir: "#009900",
+      },
+      {
+        text: "App Sismos",
+        image: "../media/logos/intitutos/APPCELL.svg",
+        colcir: "#009900",
+      },
+      {
+        text: "Último Sismo",
+        image: "../media/logos/intitutos/IGP.svg",
+        colcir: "#009900",
+      },
+      {
+        text: "ACELDAT-Perú",
+        image: "../media/logos/intitutos/ACELDAT.svg",
+        colcir: "#009900",
+      },
+      {
+        text: "Correo",
+        image: "../media/logos/intitutos/GMAIL.svg",
+        colcir: "#FFDD00",
+      },
+      {
+        text: "IGP Api",
+        image: "../media/logos/intitutos/IGP_API.svg",
+        colcir: "#009900",
+      },
+    ];
+    const plat = [
+      {
+        text: "PIDE",
+        image: "../media/logos/intitutos/PIDE.svg",
+        colcir: "#009900",
+      },
+      {
+        text: "IDEP",
+        image: "../media/logos/intitutos/IDEP.svg",
+        colcir: "#009900",
+      },
+      {
+        text: "Gob.pe",
+        image: "../media/logos/intitutos/ESCUDO.svg",
+        colcir: "#009900",
+      },
+    ];
+    const ofuen = [
+      {
+        text: "SASPe | Indeci",
+        image: "../media/logos/intitutos/SASPE.svg",
+        colcir: "#FFDD00",
+      },
+      {
+        text: "Rimac",
+        image: "../media/logos/intitutos/RIMAC.svg",
+        colcir: "#FFDD00",
+      },
+      {
+        text: "Test IGP",
+        image: "../media/logos/intitutos/IGPTest.svg",
+        colcir: "#009900",
+      },
+    ];
+
     const { t, te } = useI18n();
     const route = useRoute();
     const scrollElRef = ref<null | HTMLElement>(null);
@@ -209,6 +339,10 @@ export default defineComponent({
       MainMenuConfig,
       asideMenuIcons,
       translate,
+      gob,
+      inst,
+      plat,
+      ofuen,
     };
   },
 });
@@ -286,8 +420,8 @@ export default defineComponent({
   background-color: #ff7a00;
   border-color: #ff7a00;
 }
-#subTit{
-font-weight: bold !important;
+#subTit {
+  font-weight: bold !important;
 }
 </style>
 

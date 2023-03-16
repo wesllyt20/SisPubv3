@@ -35,9 +35,12 @@ export default defineComponent({
   font-size: 12px;
   text-decoration: underline;
   padding-right: 1px;
+  margin-left:3px ;
 }
-#imgInts2 {
-    justify-content: flex-end
+#imgInts {
+    justify-content: flex-end;
+    max-width: 25px;
+     max-height: 25px;
 }
 .circulo {
      width: 20px;
