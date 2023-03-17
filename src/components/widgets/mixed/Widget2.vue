@@ -13,39 +13,60 @@
     <!--end::Header-->
 
     <!--begin::Body-->
-    <div id="cardw2" class="card-body pt-1">
-      <a class="fw-bolder">N° de Reporte (*) :</a>
-      <input type="number"  class="form-control"/>
-      <div class="form-check form-switch">
-        <input
-          class="form-check-input form-switch"
-          type="checkbox"
-        />
+
+    <div class="cardw2 card-body pt-1 d-flex align-items-center flex-md-row">
+      <span class="me-auto text-nowrap">N° de Reporte (*) :</span>
+      <input type="number" class="form-control form-control-sm" />
+      <div class="form-check form-switch ms-auto">
+        <input class="reportW2 form-check-input form-switch" type="checkbox" />
       </div>
     </div>
-    <div id="cardw2" class="card-body pt-1">
-      <a class="fw-bolder">Fecha local :</a>
-      <input type="date"  class="form-control"/>
+
+    <div
+      class="cardw2 card-body pt-1 d-flex align-items-center flex-column flex-md-row"
+    >
+      <span class="me-auto">Fecha local :</span>
+      <input class="impW2 form-control form-control-sm" type="text" />
     </div>
-    <div id="cardw2" class="card-body pt-1">
-      <a class="fw-bolder">Hora local :</a>
-      <input class="form-control form-control-sm" type="text"  >
+    <div
+      class="cardw2 card-body pt-1 d-flex align-items-center flex-column flex-md-row"
+    >
+      <span class="me-auto">Hora local :</span>
+      <input class="impW2 form-control form-control-sm" type="text" />
     </div>
-    <div id="cardw2" class="card-body pt-1">
-      <a class="fw-bolder">Latitud :</a>
-      <input class="form-control form-control-sm" type="text"  >
+    <div
+      class="cardw2 card-body pt-1 d-flex align-items-center flex-column flex-md-row"
+    >
+      <span class="me-auto">Latitud :</span>
+      <input class="impW2 form-control form-control-sm" type="text" />
     </div>
-    <div id="cardw2" class="card-body pt-1">
-      <a class="fw-bolder">Longitud :</a>
-      <input class="form-control form-control-sm" type="text"  >
+    <div
+      class="cardw2 card-body pt-1 d-flex align-items-center flex-column flex-md-row"
+    >
+      <span class="me-auto">Longitud :</span>
+      <input class="impW2 form-control form-control-sm" type="text" />
     </div>
-    <div id="cardw2" class="card-body pt-1">
-      <a class="fw-bolder">Profundidad (km) :</a>
-      <input class="form-control form-control-sm" type="text"  >
+    <div
+      class="cardw2 card-body pt-1 d-flex align-items-center flex-column flex-md-row"
+    >
+      <span class="me-auto">Profundidad (km) :</span>
+      <input class="impW2 form-control form-control-sm" type="text" />
     </div>
-    <div id="cardw2" class="card-body pt-1">
-      <a class="fw-bolder">Magnitud :</a>
-      <input class="form-control form-control-sm" type="text"  >
+    <div
+      class="cardw2 card-body pt-1 d-flex align-items-center flex-column flex-md-row"
+    >
+      <span class="me-auto">Magnitud :</span>
+      <input
+        min="1"
+        max="10"
+        v-model="magnitud"
+        v-bind:style="{ backgroundColor: w2color, color: 'white' }"
+        class="impW2 form-control form-control-sm"
+        type="number"
+      />
+    </div>
+    <div id="notify-container">
+      <span i="cardbot" class="block">asdasda</span>
     </div>
     <!--end: Card Body-->
   </div>
@@ -57,6 +78,36 @@ import { defineComponent, onMounted } from "vue";
 import { MenuComponent } from "@/assets/ts/components/MenuComponent";
 
 export default defineComponent({
+  data() {
+    return {
+      w2color: "#FFFFFF",
+      magnitud: 0,
+    };
+  },
+  methods: {
+    actualizarFondo() {
+      if (this.magnitud >= 1 && this.magnitud <= 4) {
+        this.w2color = "#009900";
+        console.log("sicumplo");
+      } else if (this.magnitud > 4 && this.magnitud <= 7) {
+        this.w2color = "#FFDD00";
+      } else if (this.magnitud > 7 && this.magnitud <= 10) {
+        this.w2color = "#FF3D00";
+      }
+    },
+    verificarValor() {
+      if (this.magnitud > 10) {
+        this.magnitud = 10;
+      }
+    },
+  },
+  watch: {
+    magnitud() {
+      this.actualizarFondo();
+      this.verificarValor();
+    },
+  },
+
   name: "kt-widget-5",
   props: {
     widgetClasses: String,
@@ -93,11 +144,27 @@ export default defineComponent({
 .form-check {
   margin-left: auto;
 }
-#cardw2{
-  
+#cardw2 {
   justify-content: space-between;
   padding: 0 10px;
 }
+.impW2 {
+  width: 55%;
+}
+.reportW2 {
+  width: 10px;
+}
+#cadbot {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: right;
 
-
+  color: #464e5f;
+  display: flex; /* Establece el contenedor como flexbox */
+  justify-content: center; /* Centra horizontalmente el contenido */
+  align-items: center;
+}
 </style>
