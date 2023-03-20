@@ -57,6 +57,7 @@
     >
       <span class="me-auto">Magnitud :</span>
       <input
+      id="impmagnitud"
         min="1"
         max="10"
         v-model="magnitud"
@@ -65,8 +66,11 @@
         type="number"
       />
     </div>
-    <div id="notify-container">
-      <span i="cardbot" class="block">asdasda</span>
+    <div class="signalBot pt-2 card-body">
+      <span id="cardbot" class="inline-block">Recuerda que:  Proximo N° de Reporte  : 91</span>
+    </div>
+    <div class="signalBot pt-2 card-body">
+      <span id="cardbot" class="inline-block">asdasda</span>
     </div>
     <!--end: Card Body-->
   </div>
@@ -150,6 +154,11 @@ export default defineComponent({
 }
 .impW2 {
   width: 55%;
+ 
+}
+#impmagnitud{
+  font-weight: bold;
+  font-size: 1.55rem;
 }
 .reportW2 {
   width: 10px;
@@ -166,5 +175,17 @@ export default defineComponent({
   display: flex; /* Establece el contenedor como flexbox */
   justify-content: center; /* Centra horizontalmente el contenido */
   align-items: center;
+}
+.signalBot{
+  border: 1px solid #bb5656;
+  padding-bottom: 1px;
+  display: flex; /* Establece el contenedor como flexbox */
+  justify-content: center; /* Centra horizontalmente el contenido */
+  align-items: center;
+  margin-left: 20px ;
+  margin-right:20px;
+  border: 1px solid rgba(0, 0, 175, 0.34);
+border-radius: 2px;
+  
 }
 </style>

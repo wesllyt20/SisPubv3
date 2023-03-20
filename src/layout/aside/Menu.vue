@@ -213,12 +213,12 @@ export default defineComponent({
     const gob = [
       {
         text: "DHN (principal)",
-        image: "../media/logos/intitutos/ACELDAT.svg",
+        image: "../media/logos/intitutos/DHN.svg",
         colcir: "#009900",
       },
       {
         text: "DHN (alterno)",
-        image: "../media/logos/intitutos/ACELDAT.svg",
+        image: "../media/logos/intitutos/DHN.svg",
         colcir: "#009900",
       },
       {

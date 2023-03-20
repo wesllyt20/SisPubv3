@@ -70,7 +70,6 @@ class ScrollComponent {
   private getAutoHeight = () => {
     let height: number | string = getViewPort().height
 
-    console.log("viewport height",height);
     const dependencies = this.getOption('dependencies')
     const wrappers = this.getOption('wrappers')
     const offset = this.getOption('offset')
@@ -98,7 +97,6 @@ class ScrollComponent {
           if (borderBottom) {
             height = height - parseInt(borderBottom)
           }
-          console.log("viewport height 2",height);
         }
       }
     }
