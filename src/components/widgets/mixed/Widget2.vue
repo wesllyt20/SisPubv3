@@ -16,7 +16,11 @@
 
     <div class="cardw2 card-body pt-1 d-flex align-items-center flex-md-row">
       <span class="me-auto text-nowrap">N° de Reporte (*) :</span>
-      <input type="number" class="form-control form-control-sm" />
+      <input
+        id="impReport"
+        type="number"
+        class="form-control form-control-sm"
+      />
       <div class="form-check form-switch ms-auto">
         <input class="reportW2 form-check-input form-switch" type="checkbox" />
       </div>
@@ -26,13 +30,13 @@
       class="cardw2 card-body pt-1 d-flex align-items-center flex-column flex-md-row"
     >
       <span class="me-auto">Fecha local :</span>
-      <input class="impW2 form-control form-control-sm" type="text" />
+      <input class="impW2 form-control form-control-sm" type="date" />
     </div>
     <div
       class="cardw2 card-body pt-1 d-flex align-items-center flex-column flex-md-row"
     >
       <span class="me-auto">Hora local :</span>
-      <input class="impW2 form-control form-control-sm" type="text" />
+      <input class="impW2 form-control form-control-sm" type="time" />
     </div>
     <div
       class="cardw2 card-body pt-1 d-flex align-items-center flex-column flex-md-row"
@@ -57,21 +61,26 @@
     >
       <span class="me-auto">Magnitud :</span>
       <input
-      id="impmagnitud"
+        id="impmagnitud"
         min="1"
         max="10"
+        step="0.1"
         v-model="magnitud"
         v-bind:style="{ backgroundColor: w2color, color: 'white' }"
-        class="impW2 form-control form-control-sm"
+        class="impW2 form-control form-control-sm text-center"
         type="number"
       />
     </div>
-    <div class="signalBot pt-2 card-body">
-      <span id="cardbot" class="inline-block">Recuerda que:  Proximo N° de Reporte  : 91</span>
+    <div class="signalBot pt-2 card-body me-auto">
+      <span id="proxRep">Recuerda que: {{ " " }} </span>
+      <span>Proximo N° de Reporte : </span>
+      <span id="proxRepNumb"> 91</span>
     </div>
+    <br>
     <div class="signalBot pt-2 card-body">
-      <span id="cardbot" class="inline-block">asdasda</span>
+      <span class="inline-block">Nuevo Registro Manual</span>
     </div>
+    <br>
     <!--end: Card Body-->
   </div>
   <!--end: List Widget 5-->
@@ -82,6 +91,7 @@ import { defineComponent, onMounted } from "vue";
 import { MenuComponent } from "@/assets/ts/components/MenuComponent";
 
 export default defineComponent({
+  name: "kt-widget-2",
   data() {
     return {
       w2color: "#FFFFFF",
@@ -92,7 +102,6 @@ export default defineComponent({
     actualizarFondo() {
       if (this.magnitud >= 1 && this.magnitud <= 4) {
         this.w2color = "#009900";
-        console.log("sicumplo");
       } else if (this.magnitud > 4 && this.magnitud <= 7) {
         this.w2color = "#FFDD00";
       } else if (this.magnitud > 7 && this.magnitud <= 10) {
@@ -112,7 +121,6 @@ export default defineComponent({
     },
   },
 
-  name: "kt-widget-5",
   props: {
     widgetClasses: String,
   },
@@ -138,7 +146,7 @@ export default defineComponent({
   color: #0000af !important;
   margin-left: 2px;
   font-size: 20px;
-  font-weight: 300 !important;
+  font-weight: 400 !important;
 }
 #subimgw2 {
   margin-bottom: 6px;
@@ -154,14 +162,18 @@ export default defineComponent({
 }
 .impW2 {
   width: 55%;
- 
 }
-#impmagnitud{
+#impReport {
+  width: 29%;
+}
+#impmagnitud {
   font-weight: bold;
   font-size: 1.55rem;
 }
 .reportW2 {
-  width: 10px;
+  width: 5px;
+  margin-top: 4px;
+  margin-right: 1px;
 }
 #cadbot {
   font-family: "Poppins";
@@ -176,16 +188,24 @@ export default defineComponent({
   justify-content: center; /* Centra horizontalmente el contenido */
   align-items: center;
 }
-.signalBot{
-  border: 1px solid #bb5656;
-  padding-bottom: 1px;
-  display: flex; /* Establece el contenedor como flexbox */
-  justify-content: center; /* Centra horizontalmente el contenido */
-  align-items: center;
-  margin-left: 20px ;
-  margin-right:20px;
+.signalBot {
+  display: flex;
+  justify-content: center;
+ 
+  margin-left: 20px;
+  margin-right: 25px;
   border: 1px solid rgba(0, 0, 175, 0.34);
-border-radius: 2px;
-  
+  border-radius: 2px;
+  background: rgba(0, 0, 175, 0.06);
+ 
+  height: 26px;
+  width: 90%;
+}
+#proxRep {
+  color: #0000af;
+}
+#proxRepNumb {
+  color: #0000af;
+  font-weight: bold;
 }
 </style>

@@ -2,21 +2,13 @@
   <!--begin::Tables Widget 9-->
   <div class="card" :class="widgetClasses">
     <!--begin::Header-->
-    <div class="card-header border-0 pt-5">
-      <h3 class="card-title align-items-start flex-column">
-        <span id="titabDash" class="card-label fw-bolder fs-3 mb-1">Ultimas incidencias</span>
-
-        <span class="text-muted mt-1 fw-bold fs-7">Consolidado de incidencias recientes</span>
+    <div class="card-header align-items-center border-0 mt-1">
+      <h3 class="align-items-start flex-column">
+        <img id="subimgw2" alt="" src="media/icons/subtittle/signal.svg" />
+        <span id="tiw2" class="fw-bolder mb-2 text-dark"
+          >Localidades de referencia</span
+        >
       </h3>
-
-      <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover">
-        <a href="#" class="btn btn-sm btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_invite_friends">
-          <span class="svg-icon svg-icon-3">
-            <inline-svg src="media/icons/duotune/arrows/arr075.svg" />
-          </span>
-          Nuevo
-        </a>
-      </div>
     </div>
     <!--end::Header-->
 
@@ -29,11 +21,11 @@
           <!--begin::Table head-->
           <thead>
             <tr id="tabDash" class="fw-bolder text-muted">
-              <th class="min-w-150px">Responsable</th>
-              <th class="min-w-140px">Fecha y hora</th>
-              <th class="min-w-120px">Critico</th>
-              <th class="min-w-120px text-center">Estado</th>
-              <th class="min-w-100px text-center">Acciones</th>
+              <th class="min-w-150px">Intensidad</th>
+              <th class="min-w-140px">Referencia</th>
+              <th class="min-w-120px">Teléfonos</th>
+              <th class="min-w-120px text-center">Reporte</th>
+              <th class="min-w-100px text-center">Publicar</th>
             </tr>
           </thead>
           <!--end::Table head-->
@@ -98,6 +90,34 @@
     </div>
 
   </div>
+
+<!--
+
+                <td>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="checkbox1"
+                    />
+                  
+                  </div>
+                </td>
+                <td>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="radiobuttons"
+                      id="radiobutton1"
+                      value="option1"
+                    />
+                  </div>
+                </td>
+
+-->
+
 </template>
 
 <script lang="ts">
