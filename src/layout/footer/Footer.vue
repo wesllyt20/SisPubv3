@@ -1,5 +1,5 @@
-<template>
-  <!--begin::Footer-->
+<template> 
+  <!--begin::Footer PARTE DE ABAJO -->
   <div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
     <!--begin::Container-->
     <div

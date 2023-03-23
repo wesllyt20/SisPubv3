@@ -57,28 +57,29 @@
                 }">
                   {{ item.critico }}
                 </td>
-                <td class="text-center align-middle">
-                  <div class="d-flex flex-column w-100 me-2 align-items-center text-nowrap">
-                    <div class="d-flex flex-stack mb-2 ">
-                      <span class="me-2 fs-7 fw-bold" v-bind:style="getStateStyle(item.state)">
-                        {{ item.state }}
-                      </span>
-                    </div>
+                <td>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="checkbox1"
+                    />
+                  
                   </div>
                 </td>
-                <td class="text-center">
-                  <a href="#" class="btnw9 btn btn-icon btn-bg-light btn-sm me-1">
-                    <span class="svg-icon svg-icon-3">
-                      <inline-svg class="imw9" src="media/icons/duotune/art/art005.svg" />
-                    </span>
-                  </a>
-
-                  <a href="#" class="btnw9 btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
-                    <span class="svg-icon svg-icon-3">
-                      <inline-svg class="imw9" src="media/icons/duotune/general/gen027.svg" />
-                    </span>
-                  </a>
+                <td>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="radiobuttons"
+                      id="radiobutton1"
+                      value="option1"
+                    />
+                  </div>
                 </td>
+
               </tr>
             </template>
           </tbody>

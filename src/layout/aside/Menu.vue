@@ -92,54 +92,63 @@
           <span class="tiMenu ls-1"> Canales</span>
           <div class="menu-item menu-accordion">
             <!--GOBIERNO-->
-            <span class="subTit ls-1"> Gobierno :</span>
+            <div class="mb-5 mt-2">
+            <span class="subTit ls-1 mb-2"> Gobierno :</span>
             <template v-for="item in gob" :key="item.image">
               <Btninstitute
-                :image="item.image"
-                :text="item.text"
-                :colcir="item.colcir"
-              ></Btninstitute>
-            </template>
-
-            <!--INSTITUCIONALES-->
-            <span class="subTit ls-1"> Institucionales :</span>
-            <template v-for="item in inst" :key="item.image">
-              <Btninstitute
-                :image="item.image"
-                :text="item.text"
-                :colcir="item.colcir"
-              ></Btninstitute>
-            </template>
-
-            <!--PLATAFORMAS-->
-            <span class="subTit ls-1"> Plataformas :</span>
-            <template v-for="item in plat" :key="item.image">
-              <Btninstitute
-                :image="item.image"
-                :text="item.text"
-                :colcir="item.colcir"
-              ></Btninstitute>
-            </template>
-
-            <!--OTRAS FUENTES-->
-            <span class="subTit ls-1"> Otras fuentes :</span>
-            <template v-for="item in ofuen" :key="item.image">
-              <Btninstitute
+              class="mb-2"
                 :image="item.image"
                 :text="item.text"
                 :colcir="item.colcir"
               ></Btninstitute>
             </template>
           </div>
+          <div class="mb-5">
+          <!--INSTITUCIONALES-->
+            <span class="subTit ls-1"> Institucionales :</span>
+            <template v-for="item in inst" :key="item.image">
+              <Btninstitute
+              class="mb-2"
+                :image="item.image"
+                :text="item.text"
+                :colcir="item.colcir"
+              ></Btninstitute>
+            </template>
+          </div>  
+            <!--PLATAFORMAS-->
+            <div class="mb-5">
+            <span class="subTit ls-1"> Plataformas :</span>
+            <template v-for="item in plat" :key="item.image">
+              <Btninstitute
+              class="mb-2"
+                :image="item.image"
+                :text="item.text"
+                :colcir="item.colcir"
+              ></Btninstitute>
+            </template>
+          </div>
+            <!--OTRAS FUENTES-->
+            <div class="mb-5">
+            <span class="subTit ls-1 mt-5"> Otras fuentes :</span>
+            <template v-for="item in ofuen" :key="item.image">
+              <Btninstitute
+              class="mb-2"
+                :image="item.image"
+                :text="item.text"
+                :colcir="item.colcir"
+              ></Btninstitute>
+            </template>
+          </div>
+          </div>
         </div>
       </div>
 
-      <div class="menu-item">
+      <div class="menu-item mt-n5">
         <div class="menu-content">
           <div class="separator mx-1 my-4"></div>
         </div>
       </div>
-      <div class="menu-item">
+      <div class="menu-item mt-n5">
         <a class="menu-link" href="ingresartexto de actualizaciones">
           <span id="cambioslog" class="menu-title"
             >{{ translate("changelog") }} 3.0.0-alpha.1</span
@@ -394,7 +403,12 @@ export default defineComponent({
   font-size: 1.25rem;
   line-height: 24px;
   color: #0000af;
+  }
+
+.chMenu{
+  margin-bottom: 15px;
 }
+
 .iMenu {
   margin-bottom: 4px;
 }
@@ -420,8 +434,10 @@ export default defineComponent({
   background-color: #ff7a00;
   border-color: #ff7a00;
 }
-#subTit {
+.subTit {
   font-weight: bold !important;
+  padding: 1px;
+  font-size: 1.05rem;
 }
 </style>
 
