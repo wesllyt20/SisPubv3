@@ -9,6 +9,37 @@
           >Localidades de referencia</span
         >
       </h3>
+      <div
+        class="card-toolbar"
+        data-bs-toggle="tooltip"
+        data-bs-placement="top"
+        data-bs-trigger="hover"
+      >
+        <a
+          href="#"
+          id="bAddreport"
+          class="btn btn-sm btn-light-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#kt_modal_invite_friends"
+        >
+          <span class="svg-icon svg-icon-3">
+            <inline-svg src="media/icons/duotune/arrows/arr075.svg" />
+          </span>
+          Agregar al reporte generado
+        </a>
+        <a
+          href="#"
+          
+          class="btn btn-sm btn-light-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#kt_modal_invite_friends"
+        >
+          <span class="svg-icon svg-icon-3">
+            <inline-svg src="media/icons/duotune/arrows/arr075.svg" />
+          </span>
+          Nuevo
+        </a>
+      </div>
     </div>
     <!--end::Header-->
 
@@ -17,7 +48,9 @@
       <!--begin::Table container-->
       <div class="table-responsive">
         <!--begin::Table-->
-        <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+        <table
+          class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4"
+        >
           <!--begin::Table head-->
           <thead>
             <tr id="tabDash" class="fw-bolder text-muted">
@@ -35,64 +68,43 @@
             <template v-for="(item, index) in list" :key="index">
               <tr>
                 <td>
-                  <div class="d-flex align-items-center">
-                    <div class="d-flex justify-content-start flex-column">
-                      <a href="#" class="text-dark fw-bolder text-hover-primary fs-6">{{ item.name }}</a>
-
-                      <span class="text-muted fw-bold text-muted d-block fs-7">{{ item.skills }}</span>
-                    </div>
-                  </div>
+                
                 </td>
 
                 <td>
-                  <a href="#" class="text-dark fw-bolder text-hover-primary d-block fs-6">{{ item.date }}</a>
-                  <span class="text-muted fw-bold text-muted d-block fs-7">{{
-                    item.hour
-                  }}</span>
-                </td>
+                            </td>
 
-                <td :style="{
-                  color: item.critico === 'SI' ? 'red' : '#00A3FF',
-                  fontWeight: 'bold',
-                }">
-                  {{ item.critico }}
-                </td>
+                <td></td>
                 <td>
-                  <div class="form-check">
+                  <div class="d-flex justify-content-center form-check">
                     <input
                       class="form-check-input"
                       type="checkbox"
                       value=""
-                      id="checkbox1"
+                      id="tablCheckw9"
                     />
-                  
                   </div>
                 </td>
                 <td>
-                  <div class="form-check">
+                  <div class="d-flex justify-content-center form-check">
                     <input
                       class="form-check-input"
                       type="radio"
                       name="radiobuttons"
-                      id="radiobutton1"
+                      id="tablRadiow9"
                       value="option1"
                     />
                   </div>
                 </td>
-
               </tr>
             </template>
           </tbody>
-
         </table>
-
       </div>
-
     </div>
-
   </div>
 
-<!--
+  <!--
 
                 <td>
                   <div class="form-check">
@@ -117,9 +129,7 @@
                   </div>
                 </td>
 
--->
-
-</template>
+--></template>
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
@@ -142,7 +152,7 @@ export default defineComponent({
           display: "inline-block",
           alignItems: "center",
           justifyContent: "center",
-          lineHeight: "25px"
+          lineHeight: "25px",
         };
       } else if (state === "En proceso") {
         return {
@@ -154,7 +164,7 @@ export default defineComponent({
           display: "inline-block",
           alignItems: "center",
           justifyContent: "center",
-          lineHeight: "25px"
+          lineHeight: "25px",
         };
       } else if (state === "Finalizado") {
         return {
@@ -166,7 +176,7 @@ export default defineComponent({
           display: "inline-block",
           alignItems: "center",
           justifyContent: "center",
-          lineHeight: "25px"
+          lineHeight: "25px",
         };
       } else if (state === "Cancelado") {
         return {
@@ -178,7 +188,7 @@ export default defineComponent({
           display: "inline-block",
           alignItems: "center",
           justifyContent: "center",
-          lineHeight: "25px"
+          lineHeight: "25px",
         };
       }
     },
@@ -239,19 +249,41 @@ export default defineComponent({
 <style>
 #tabDash,
 #titabDash {
-  color: #0000AF !important;
+  color: #000000 !important;
 }
-.imw9{
-  filter: invert(80%) sepia(39%) saturate(1000%) hue-rotate(186deg) brightness(101%) contrast(101%)
+.imw9 {
+  filter: invert(80%) sepia(39%) saturate(1000%) hue-rotate(186deg)
+    brightness(101%) contrast(101%);
 }
 
 .btnw9:hover {
   background-color: #b5b5c3;
-  color: #0000AF;
+  color: #0000af;
 }
 
 .btnw9:active {
-  background-color: #0000FF;
-  color: #FFFFFF;
+  background-color: #0000ff;
+  color: #ffffff;
+}
+#tablCheckw9[type="checkbox"] {
+  background-color: #f3f6f9;
+}
+#tablCheckw9[type="checkbox"]:checked {
+  background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="%230000af" d="M5.5 11.5L2 8l1.5-1.5L5.5 8l5.5-5.5L13 3z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 20px;
+}
+#tablRadiow9[type="radio"] {
+  background-color: #f3f6f9;
+}
+#tablRadiow9[type="radio"]:checked {
+  background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><circle cx="8" cy="8" r="4" fill="%230000af"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+#bAddreport{
+  margin-right: 25px !important;
 }
 </style>
