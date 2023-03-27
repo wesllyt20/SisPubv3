@@ -236,15 +236,7 @@ export default defineComponent({
         hour: "10:25:20",
         state: "Cancelado",
         critico: "NO",
-      },
-      {
-        name: "Kevin Leonard",
-        skills: "CENVUL",
-        date: "11/02/23",
-        hour: "16:05:10",
-        state: "Finalizado",
-        critico: "NO",
-      },
+      }
     ];
 
     return {

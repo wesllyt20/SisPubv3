@@ -71,16 +71,20 @@
         type="number"
       />
     </div>
-    <div class="container signalBot">
-      <span id="proxRep">Recuerda que: </span>
-      <span>Proximo N° de Reporte : </span>
-      <span id="proxRepNumb"> 91</span>
+    <div class="container">
+      <div class="signalBot pt-1">
+        <span id="proxRep">Recuerda que: </span>
+        <span>Proximo N° de Reporte : </span>
+        <span id="proxRepNumb"> 91</span>
+      </div>
     </div>
-    <br>
-    <div class="signalBot">
-      <span class="inline-block">Nuevo Registro Manual</span>
+    <br />
+    <div class="container">
+      <div class="signalBot">
+        <span class="inline-block">Nuevo Registro Manual</span>
+      </div>
     </div>
-    <br>
+    <br />
     <!--end: Card Body-->
   </div>
   <!--end: List Widget 5-->
@@ -189,22 +193,17 @@ export default defineComponent({
   align-items: center;
 }
 
-
 .signalBot {
   display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid rgba(0, 0, 175, 0.34);
-    border-radius: 2px;
-    background: rgba(0, 0, 175, 0.06);
-    width: 100%;
-    height: 50px;
-    font-size: 1.20rem;
-    padding-left: 10px !important;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 175, 0.34);
+  border-radius: 2px;
+  background: rgba(0, 0, 175, 0.06);
+  width: 100%;
+  height: 50px;
+  font-size: 1.1rem;
 }
-
-
-
 
 #proxRep {
   color: #0000af;
