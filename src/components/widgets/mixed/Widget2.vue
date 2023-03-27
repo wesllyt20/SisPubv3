@@ -71,13 +71,13 @@
         type="number"
       />
     </div>
-    <div class="signalBot pt-2 card-body me-auto">
-      <span id="proxRep">Recuerda que: {{ " " }} </span>
+    <div class="container signalBot">
+      <span id="proxRep">Recuerda que: </span>
       <span>Proximo N° de Reporte : </span>
       <span id="proxRepNumb"> 91</span>
     </div>
     <br>
-    <div class="signalBot pt-2 card-body">
+    <div class="signalBot">
       <span class="inline-block">Nuevo Registro Manual</span>
     </div>
     <br>
@@ -188,24 +188,31 @@ export default defineComponent({
   justify-content: center; /* Centra horizontalmente el contenido */
   align-items: center;
 }
+
+
 .signalBot {
   display: flex;
-  justify-content: center;
- 
-  margin-left: 20px;
-  margin-right: 25px;
-  border: 1px solid rgba(0, 0, 175, 0.34);
-  border-radius: 2px;
-  background: rgba(0, 0, 175, 0.06);
- 
-  height: 26px;
-  width: 90%;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 175, 0.34);
+    border-radius: 2px;
+    background: rgba(0, 0, 175, 0.06);
+    width: 100%;
+    height: 50px;
+    font-size: 1.20rem;
+    padding-left: 10px !important;
 }
+
+
+
+
 #proxRep {
   color: #0000af;
+  margin-right: 5px;
 }
 #proxRepNumb {
   color: #0000af;
   font-weight: bold;
+  margin-left: 5px;
 }
 </style>

@@ -29,7 +29,6 @@
         </a>
         <a
           href="#"
-          
           class="btn btn-sm btn-light-primary"
           data-bs-toggle="modal"
           data-bs-target="#kt_modal_invite_friends"
@@ -67,14 +66,23 @@
           <tbody>
             <template v-for="(item, index) in list" :key="index">
               <tr>
+                <td></td>
+
                 <td>
-                
+                  <div class="tabw9 pt-2 card-body">
+                    <span class="inline-block"
+                      >119 km al N de Sta. Maria De Nieva, Condorcanqui -
+                      Amazonas</span
+                    >
+                  </div>
                 </td>
 
                 <td>
-                            </td>
-
-                <td></td>
+                  <div class="tabw9 pt-2 card-body">
+                    <span>123456789</span>
+              
+                  </div>
+                </td>
                 <td>
                   <div class="d-flex justify-content-center form-check">
                     <input
@@ -283,7 +291,18 @@ export default defineComponent({
   background-repeat: no-repeat;
   background-position: center center;
 }
-#bAddreport{
+#bAddreport {
   margin-right: 25px !important;
+}
+.tabw9 {
+  display: flex;
+  justify-content: center;
+
+  border: 1px solid rgba(0, 0, 175, 0.34);
+  border-radius: 2px;
+  background: rgba(0, 0, 175, 0.06);
+
+  height: 80%;
+  width: 90%;
 }
 </style>
