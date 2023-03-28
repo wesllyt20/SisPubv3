@@ -39,6 +39,7 @@ export default defineComponent({
   text-decoration: underline;
   padding-right: 1px;
   margin-left: 3px;
+  
 }
 #imgInts {
   justify-content: flex-end;
