@@ -31,13 +31,14 @@
             Publicar evento
           </button>
         </div>
-        <div class="menu-content pt-8 pb-2">
+        <div id="divMen2" class="border border-vertical"></div>
+        <div class="menu-content pt-4 pb-2">
           <img
             class="iMenu"
             src="media/icons/duotune/general/ico_Pub.svg"
             alt=""
           />
-          <span class="tiMenu ls-1"> Publicar</span>
+          <span class="tiMenu"> Publicar</span>
           <div class="chMenu menu-section fs-8 px-3">
             <div class="d-flex justify-content-between align-items-center">
               <span v-bind:style="{ color: evnt1 }" class="card-title mb-0"
@@ -89,56 +90,56 @@
             src="media/icons/duotune/general/ico_Bell.svg"
             alt=""
           />
-          <span class="tiMenu ls-1"> Canales</span>
+          <span class="tiMenu"> Canales</span>
           <div class="menu-item menu-accordion">
             <!--GOBIERNO-->
             <div class="mb-5 mt-2">
-            <span class="subTit ls-1 mb-2"> Gobierno :</span>
-            <template v-for="item in gob" :key="item.image">
-              <Btninstitute
-              class="mb-2"
-                :image="item.image"
-                :text="item.text"
-                :colcir="item.colcir"
-              ></Btninstitute>
-            </template>
-          </div>
-          <div class="mb-5">
-          <!--INSTITUCIONALES-->
-            <span class="subTit ls-1"> Institucionales :</span>
-            <template v-for="item in inst" :key="item.image">
-              <Btninstitute
-              class="mb-2"
-                :image="item.image"
-                :text="item.text"
-                :colcir="item.colcir"
-              ></Btninstitute>
-            </template>
-          </div>  
+              <span class="subTit mb-2"> Gobierno :</span>
+              <template v-for="item in gob" :key="item.image">
+                <Btninstitute
+                  class="mb-2"
+                  :image="item.image"
+                  :text="item.text"
+                  :colcir="item.colcir"
+                ></Btninstitute>
+              </template>
+            </div>
+            <div class="mb-5">
+              <!--INSTITUCIONALES-->
+              <span class="subTit"> Institucionales :</span>
+              <template v-for="item in inst" :key="item.image">
+                <Btninstitute
+                  class="mb-2"
+                  :image="item.image"
+                  :text="item.text"
+                  :colcir="item.colcir"
+                ></Btninstitute>
+              </template>
+            </div>
             <!--PLATAFORMAS-->
             <div class="mb-5">
-            <span class="subTit ls-1"> Plataformas :</span>
-            <template v-for="item in plat" :key="item.image">
-              <Btninstitute
-              class="mb-2"
-                :image="item.image"
-                :text="item.text"
-                :colcir="item.colcir"
-              ></Btninstitute>
-            </template>
-          </div>
+              <span class="subTit"> Plataformas :</span>
+              <template v-for="item in plat" :key="item.image">
+                <Btninstitute
+                  class="mb-2"
+                  :image="item.image"
+                  :text="item.text"
+                  :colcir="item.colcir"
+                ></Btninstitute>
+              </template>
+            </div>
             <!--OTRAS FUENTES-->
             <div class="mb-5">
-            <span class="subTit ls-1 mt-5"> Otras fuentes :</span>
-            <template v-for="item in ofuen" :key="item.image">
-              <Btninstitute
-              class="mb-2"
-                :image="item.image"
-                :text="item.text"
-                :colcir="item.colcir"
-              ></Btninstitute>
-            </template>
-          </div>
+              <span class="subTit mt-5"> Otras fuentes :</span>
+              <template v-for="item in ofuen" :key="item.image">
+                <Btninstitute
+                  class="mb-2"
+                  :image="item.image"
+                  :text="item.text"
+                  :colcir="item.colcir"
+                ></Btninstitute>
+              </template>
+            </div>
           </div>
         </div>
       </div>
@@ -379,11 +380,9 @@ export default defineComponent({
 }
 #headingText {
   color: #0000af;
-  font-size: 16px !important;
+  font-size: 14px !important;
 }
-.rellenoMenu {
-  margin-left: 20px;
-}
+
 #cambioslog {
   font-size: 10px;
 }
@@ -393,24 +392,34 @@ export default defineComponent({
 }
 
 #bPub {
-  width: 100%; /* Establece el ancho de los botones al 100% del contenedor */
-  background-color: #0075ff;
+  width: 195.62px;
+  height: 40px;
+  background-color: #0075FF;
   border-radius: 6px;
+  font-style: normal;
+font-weight: 600;
+font-size: 12px;
+line-height: 18px;
 }
 .tiMenu {
   font-style: normal;
   font-weight: 400;
-  font-size: 1.25rem;
+  font-size: 1rem;
   line-height: 24px;
   color: #0000af;
-  }
+  margin-left: 6px;
 
-.chMenu{
+}
+
+.chMenu {
   margin-bottom: 15px;
 }
 
 .iMenu {
-  margin-bottom: 4px;
+  margin-bottom: 3px;
+  margin-left: 10px;
+  width: 10px;
+  height: 12px;
 }
 .card-title {
   margin-left: 10px;
@@ -435,9 +444,20 @@ export default defineComponent({
   border-color: #ff7a00;
 }
 .subTit {
-  font-weight: bold !important;
-  padding: 1px;
-  font-size: 1.05rem;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+}
+#divMen2 {
+  margin-top: 10px;
+  margin-left: 33px;
+  margin-right: 33px;
+
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: #e5eaee !important;
+  line-height: 36px;
 }
 </style>
 

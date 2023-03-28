@@ -1,11 +1,14 @@
 <template>
-    <div class="d-grid w-100">
-  <button id="btnints" type="button" class="btn btn-outline-secondary  d-flex">
-    <img id="imgInts" class="text-start" alt="" :src="image" />
-    <span id="btnTex" class="text-start">{{ text }}</span>
-    <span class="circulo ms-auto" v-bind:style="{ backgroundColor: colcir }" ></span>
-  </button>
-</div>
+  <div class="d-grid w-100">
+    <button id="btnints" type="button" class="btn btn-outline-secondary d-flex">
+      <img id="imgInts" class="text-start" alt="" :src="image" />
+      <span id="btnTex" class="text-start">{{ text }}</span>
+      <span
+        class="circulo ms-auto"
+        v-bind:style="{ backgroundColor: colcir }"
+      ></span>
+    </button>
+  </div>
 </template>
   
   <script lang="ts">
@@ -26,29 +29,30 @@ export default defineComponent({
   background-color: #ffffff;
   border: 1px solid #d9d9d9;
   padding: 4px;
-  
- 
+  width: 184.32px;
+  height: 26px;
 }
 
 #btnTex {
   color: #005ad9;
-  font-size: 12px;
+  font-size: 10px;
   text-decoration: underline;
   padding-right: 1px;
-  margin-left:3px ;
+  margin-left: 3px;
 }
 #imgInts {
-    justify-content: flex-end;
-    max-width: 25px;
-     max-height: 25px;
+  justify-content: flex-end;
+  max-width: 25px;
+  max-height: 25px;
+  width: 17.05px;
+  height: 18px;
 }
 .circulo {
-     width: 20px;
-     height: 20px;
-     -moz-border-radius: 50%;
-     -webkit-border-radius: 50%;
-     border-radius: 50%;
-     
+width: 16.15px;
+height: 15.94px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 19.1295px;
 }
 </style>
   
