@@ -24,14 +24,15 @@
         <div class="d-grid gap-2 col-6 mx-auto">
           <button
             id="bPub"
-            class="btn btn-primary btn-lg"
+            class=""
             type="button"
-            v-bind:style="{ backgroundColor: btncol }"
+            :class="{ 'btn-custom': true }"
+            @click="pubBtn"
           >
-            Publicar eventoo
+            Publicar evento
           </button>
         </div>
-        <div id="divMen2" class="border border-vertical"></div>
+        <div class="divMen2 border border-vertical"></div>
         <div class="menu-content pt-4 pb-2">
           <img
             class="iMenu"
@@ -41,13 +42,11 @@
           <span class="tiMenu"> Publicar</span>
           <div class="chMenu menu-section fs-8 px-3">
             <div class="d-flex justify-content-between align-items-center">
-              <span v-bind:style="{ color: evnt1 }" class="card-title mb-0"
-                >Evento</span
-              >
-              <div class="form-check">
+              <span id="evento" class="card-title mb-0">Evento</span>
+              <div class="form-check mb-2">
                 <input
                   id="imp1"
-                  class="form-check-input"
+                  class="form-check-input mt-2"
                   type="checkbox"
                   v-model="isChecked1"
                   v-on:change="updateCheckboxes(1)"
@@ -57,13 +56,11 @@
             <div
               class="block d-flex justify-content-between align-items-center"
             >
-              <span v-bind:style="{ color: evnt2 }" class="card-title mb-0"
-                >Simulacro</span
-              >
-              <div class="form-check">
+              <span id="simulacro" class="card-title mb-0">Simulacro</span>
+              <div class="form-check mb-2">
                 <input
                   id="imp2"
-                  class="form-check-input"
+                  class="form-check-input mt-2"
                   type="checkbox"
                   v-model="isChecked2"
                   v-on:change="updateCheckboxes(2)"
@@ -71,13 +68,11 @@
               </div>
             </div>
             <div class="d-flex justify-content-between align-items-center">
-              <span v-bind:style="{ color: evnt3 }" class="card-title mb-0"
-                >Simulación</span
-              >
-              <div class="form-check">
+              <span id="simulacion" class="card-title mb-0">Simulación</span>
+              <div class="form-check mb-2">
                 <input
                   id="imp3"
-                  class="form-check-input"
+                  class="form-check-input mt-2"
                   type="checkbox"
                   v-model="isChecked3"
                   v-on:change="updateCheckboxes(3)"
@@ -86,18 +81,18 @@
             </div>
           </div>
           <img
-            class="iMenu"
+            class="iMenu2"
             src="media/icons/duotune/general/ico_Bell.svg"
             alt=""
           />
           <span class="tiMenu"> Canales</span>
           <div class="menu-item menu-accordion">
             <!--GOBIERNO-->
-            <div class="mb-5 mt-2">
-              <span class="subTit mb-2"> Gobierno :</span>
+            <div class="mb-5 mt-1">
+              <span class="subTit mb-6"> Gobierno :</span>
               <template v-for="item in gob" :key="item.image">
                 <Btninstitute
-                  class="mb-2"
+                  class="binst mb-1"
                   :image="item.image"
                   :text="item.text"
                   :colcir="item.colcir"
@@ -109,7 +104,7 @@
               <span class="subTit"> Institucionales :</span>
               <template v-for="item in inst" :key="item.image">
                 <Btninstitute
-                  class="mb-2"
+                  class="binst mb-2"
                   :image="item.image"
                   :text="item.text"
                   :colcir="item.colcir"
@@ -121,7 +116,7 @@
               <span class="subTit"> Plataformas :</span>
               <template v-for="item in plat" :key="item.image">
                 <Btninstitute
-                  class="mb-2"
+                  class="binst mb-2"
                   :image="item.image"
                   :text="item.text"
                   :colcir="item.colcir"
@@ -133,7 +128,7 @@
               <span class="subTit mt-5"> Otras fuentes :</span>
               <template v-for="item in ofuen" :key="item.image">
                 <Btninstitute
-                  class="mb-2"
+                  class="binst mb-2"
                   :image="item.image"
                   :text="item.text"
                   :colcir="item.colcir"
@@ -143,13 +138,10 @@
           </div>
         </div>
       </div>
-
-      <div class="menu-item mt-n5">
-        <div class="menu-content">
-          <div class="separator mx-1 my-4"></div>
-        </div>
+      <div class="menu-item mt-n2">
+          <div class="divMen2 border border-vertical"></div>
       </div>
-      <div class="menu-item mt-n5">
+      <div class="menu-item"> 
         <a class="menu-link" href="ingresartexto de actualizaciones">
           <span id="cambioslog" class="menu-title"
             >{{ translate("changelog") }} 3.0.0-alpha.1</span
@@ -177,9 +169,13 @@ export default defineComponent({
       isChecked2: false,
       isChecked3: false,
       evnt1: "#005AD9",
+      nigg1: "500",
       evnt2: "#192024",
+      nigg2: "400",
       evnt3: "#192024",
+      nigg3: "400",
       btncol: "#005AD9",
+      btnhov: "rgba(0, 90, 217, 0.8)",
     };
   },
   methods: {
@@ -192,6 +188,10 @@ export default defineComponent({
           this.evnt2 = "#192024";
           this.evnt3 = "#192024";
           this.btncol = "#005AD9";
+          this.nigg1 = "500";
+          this.nigg2 = "400";
+          this.nigg3 = "400";
+          this.btnhov = "rgba(0, 90, 217, 0.8)";
           break;
         case 2:
           this.isChecked1 = false;
@@ -200,6 +200,10 @@ export default defineComponent({
           this.evnt2 = "#FF0000";
           this.evnt3 = "#192024";
           this.btncol = "#FF0000";
+          this.nigg1 = "400";
+          this.nigg2 = "500";
+          this.nigg3 = "400";
+          this.btnhov = "rgba(255, 0, 0, 0.8)";
           break;
         case 3:
           this.isChecked1 = false;
@@ -208,10 +212,26 @@ export default defineComponent({
           this.evnt2 = "#192024";
           this.evnt3 = "#FF7A00";
           this.btncol = "#FF7A00";
+          this.nigg1 = "400";
+          this.nigg2 = "400";
+          this.nigg3 = "500";
+          this.btnhov = "rgba(255, 122, 0, 0.8)";
           break;
         default:
           console.log("vacio");
           break;
+      }
+    },
+
+    pubBtn() {
+      if (this.isChecked1) {
+        console.log("soy check 1");
+      } else if (this.isChecked2) {
+        console.log("soy check 2");
+      } else if (this.isChecked3) {
+        console.log("soy check 3");
+      } else if (this.isChecked3 === false) {
+        console.log("VACIO BRO");
       }
     },
   },
@@ -388,31 +408,57 @@ export default defineComponent({
 }
 .d-grid {
   width: 195.62px;
-  margin: 0 auto; /* Establece los márgenes izquierdo y derecho automáticos para centrar el elemento */
+  margin: 0 auto;
 }
 
 #bPub {
   width: 195.62px;
   height: 40px;
-  background-color: #0075FF;
   border-radius: 6px;
   font-style: normal;
-font-weight: 600;
-font-size: 12px;
-line-height: 18px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #e5eaee;
 }
+
+.btn-custom:hover,
+.btn-custom:focus,
+.btn-custom:active,
+.btn-custom.active {
+  background-color: v-bind(btnhov);
+  border-color: v-bind(btnhov);
+}
+
+.btn-custom {
+  background-color: v-bind(btncol);
+  border-color: v-bind(btncol);
+}
+
+#evento {
+  color: v-bind(evnt1);
+  font-weight: v-bind(nigg1);
+}
+#simulacro {
+  color: v-bind(evnt2);
+  font-weight: v-bind(nigg2);
+}
+#simulacion {
+  color: v-bind(evnt3);
+  font-weight: v-bind(nigg3);
+}
+
 .tiMenu {
   font-style: normal;
   font-weight: 400;
   font-size: 1rem;
   line-height: 24px;
   color: #0000af;
-  margin-left: 6px;
-
+  margin-left: 4px;
 }
 
 .chMenu {
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .iMenu {
@@ -421,8 +467,19 @@ line-height: 18px;
   width: 10px;
   height: 12px;
 }
-.card-title {
+.iMenu2 {
+  margin-bottom: 1px;
   margin-left: 10px;
+  width: 10px;
+  height: 12px;
+}
+
+.binst {
+  margin-left: 10px;
+}
+
+.card-title {
+  margin-left: 17px;
   font-style: normal;
   font-weight: 400;
   font-size: 1rem;
@@ -430,7 +487,14 @@ line-height: 18px;
 
   color: #192024;
 }
-
+#imp1,
+#imp2,
+#imp3 {
+  width: 16.13px;
+  height: 14px;
+  mix-blend-mode: normal;
+  border-radius: 2px;
+}
 #imp1:checked {
   background-color: #0075ff;
   border-color: #0075ff;
@@ -448,8 +512,9 @@ line-height: 18px;
   font-weight: 500;
   font-size: 12px;
   line-height: 18px;
+  margin-left: 10px;
 }
-#divMen2 {
+.divMen2 {
   margin-top: 10px;
   margin-left: 33px;
   margin-right: 33px;

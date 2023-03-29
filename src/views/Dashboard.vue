@@ -1,6 +1,6 @@
 <template>
   <!--begin::Dashboard-->
-  <div class="row gy-5 g-xl-8">
+  <div class="row gy-2 g-xl-2 mt-2">
     <div class="col-xxl-3">
       <MixedWidget2
         widget-classes="card-xl-stretch mb-xl-8"
@@ -19,7 +19,7 @@
     </div>
   </div>
 
-  <div class="row gy-5 gx-xl-8">
+  <div class="row gy-2 g-xl-2">
     <!--ACTIVIDADES-->
     <div class="col-xxl-3">
       <ListWidget2 widget-classes="card-xl-stretch mb-xl-8"></ListWidget2>
