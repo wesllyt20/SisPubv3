@@ -28,7 +28,7 @@
             type="button"
             v-bind:style="{ backgroundColor: btncol }"
           >
-            Publicar evento
+            Publicar eventoo
           </button>
         </div>
         <div id="divMen2" class="border border-vertical"></div>
