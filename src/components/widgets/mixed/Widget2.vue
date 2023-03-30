@@ -26,51 +26,37 @@
       </div>
     </div>
 
-    <div
-      class="cardw2 card-body pt-1 d-flex align-items-center flex-column flex-md-row"
-    >
-      <span class="me-auto">Fecha local :</span>
-      <input class="impW2 form-control form-control-sm" type="date" />
-    </div>
-    <div
-      class="cardw2 card-body pt-1 d-flex align-items-center flex-column flex-md-row"
-    >
-      <span class="me-auto">Hora local :</span>
-      <input class="impW2 form-control form-control-sm" type="time" />
-    </div>
-    <div
-      class="cardw2 card-body pt-1 d-flex align-items-center flex-column flex-md-row"
-    >
-      <span class="me-auto">Latitud :</span>
-      <input class="impW2 form-control form-control-sm" type="text" />
-    </div>
-    <div
-      class="cardw2 card-body pt-1 d-flex align-items-center flex-column flex-md-row"
-    >
-      <span class="me-auto">Longitud :</span>
-      <input class="impW2 form-control form-control-sm" type="text" />
-    </div>
-    <div
-      class="cardw2 card-body pt-1 d-flex align-items-center flex-column flex-md-row"
-    >
-      <span class="me-auto">Profundidad (km) :</span>
-      <input class="impW2 form-control form-control-sm" type="text" />
-    </div>
+    <template v-for="item in parametrosSismicos" :key="item.divClass">
+      <impParameters
+        :divClass="item.divClass"
+        :spanClass="item.spanClass"
+        :descripcion="item.descripcion"
+        :impId="item.impId"
+        :impVmodel="item.impVmodel"
+        :inpClass="item.inpClass"
+        :tipo="item.tipo"
+        :min="item.min"
+        :max="item.max"
+        :step="item.step"
+      ></impParameters>
+    </template>
+
+
     <div
       class="cardw2 card-body pt-1 d-flex align-items-center flex-column flex-md-row"
     >
       <span class="me-auto">Magnitud :</span>
       <input
-        id="impmagnitud"
+        id="idMagnitud"
         min="1"
         max="10"
         step="0.1"
         v-model="magnitud"
-        v-bind:style="{ backgroundColor: w2color, color: 'white' }"
-        class="impW2 form-control form-control-sm text-center"
         type="number"
       />
     </div>
+
+
     <div class="container">
       <div class="signalBot pt-1">
         <span id="proxRep">Recuerda que: </span>
@@ -85,6 +71,7 @@
       </div>
     </div>
     <br />
+    
     <!--end: Card Body-->
   </div>
   <!--end: List Widget 5-->
@@ -93,9 +80,13 @@
 <script lang="ts">
 import { defineComponent, onMounted } from "vue";
 import { MenuComponent } from "@/assets/ts/components/MenuComponent";
+import impParameters from "@/components/modals/general/impParameters.vue";
 
 export default defineComponent({
   name: "kt-widget-2",
+  components: {
+    impParameters,
+  },
   data() {
     return {
       w2color: "#FFFFFF",
@@ -119,20 +110,86 @@ export default defineComponent({
     },
   },
   watch: {
-    magnitud() {
+    magnitud(val) {
       this.actualizarFondo();
       this.verificarValor();
+      console.log(val)
     },
   },
 
   props: {
     widgetClasses: String,
   },
-  components: {},
   setup() {
     onMounted(() => {
       MenuComponent.reinitialization();
     });
+
+    const parametrosSismicos = [
+      {
+        divClass: "impContenedor",
+        spanClass: "spanClass",
+        descripcion: "Hora local:",
+        impId: "idhLocal",
+        impVmodel: "hoLocal",
+        inpClass: "inpClass",
+        tipo: "date",
+        min: "2023/mm/dd",
+        max: "2023/mm/dd",
+        step: "",
+      },
+      {
+        divClass: "impContenedor",
+        spanClass: "spanClass",
+        descripcion: "Latitud:",
+        impId: "idlatitud",
+        impVmodel: "latitud",
+        inpClass: "inpClass",
+        tipo: "number",
+        min: "",
+        max: "",
+        step: "",
+      },
+      {
+        divClass: "impContenedor",
+        spanClass: "spanClass",
+        descripcion: "Longitud:",
+        impId: "idLongitud",
+        impVmodel: "longitud",
+        inpClass: "inpClass",
+        tipo: "number",
+        min: "",
+        max: "",
+        step: "",
+      },
+      {
+        divClass: "impContenedor",
+        spanClass: "spanClass",
+        descripcion: "Profundidad (km):",
+        impId: "idProfundidad",
+        impVmodel: "profundidad",
+        inpClass: "inpClass",
+        tipo: "number",
+        min: "",
+        max: "",
+        step: "100",
+      },
+      {
+        divClass: "impContenedor",
+        spanClass: "spanClass",
+        descripcion: "Magnitud:",
+        impId: "idMagnitud",
+        impVmodel: "magnitud",
+        inpClass: "inpClassMagnitud",
+        tipo: "number",
+        min: "1",
+        max: "10",
+        step: "0.1",
+      },
+    ];
+    return {
+      parametrosSismicos,
+    };
   },
 });
 </script>
@@ -157,61 +214,12 @@ export default defineComponent({
   max-width: 22px;
   max-height: 22px;
 }
+
 .form-check {
   margin-left: auto;
 }
-#cardw2 {
-  justify-content: space-between;
-  padding: 0 10px;
-}
-.impW2 {
-  width: 55%;
-}
-#impReport {
-  width: 29%;
-}
-#impmagnitud {
-  font-weight: bold;
-  font-size: 1.55rem;
-}
-.reportW2 {
-  width: 5px;
-  margin-top: 4px;
-  margin-right: 1px;
-}
-#cadbot {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
-  text-align: right;
-
-  color: #464e5f;
-  display: flex; /* Establece el contenedor como flexbox */
-  justify-content: center; /* Centra horizontalmente el contenido */
-  align-items: center;
-}
-
-.signalBot {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid rgba(0, 0, 175, 0.34);
-  border-radius: 2px;
-  background: rgba(0, 0, 175, 0.06);
-  width: 100%;
-  height: 50px;
-  font-size: 1.1rem;
-}
-
-#proxRep {
-  color: #0000af;
-  margin-right: 5px;
-}
-#proxRepNumb {
-  color: #0000af;
-  font-weight: bold;
-  margin-left: 5px;
+#idMagnitud{
+  background-color: v-bind(w2color);
+  color: 'white'
 }
 </style>
