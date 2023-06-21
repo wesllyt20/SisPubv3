@@ -21,16 +21,16 @@
       <div class="menu-content d-flex align-items-center px-3">
         <!--begin::Avatar-->
         <div class="symbol symbol-50px me-5">
-          <img alt="Logo" src="media/avatars/150-11.jpg" />
+          <img alt="Logo" src="media/avatars/150-8.jpg" />
         </div>
         <!--end::Avatar-->
 
         <!--begin::Username-->
         <div class="d-flex flex-column">
           <div class="fw-bolder text-muted d-flex align-items-center fs-5">
-            María Rosa
+            Efraín Fernández
           </div>
-          <a class="text-dark fw-bolder fs-3 align-right">OTIDG</a>
+          <a class="text-dark fw-bolder fs-3 align-right">Jefe Censis</a>
         </div>
         <!--end::Username-->
       </div>

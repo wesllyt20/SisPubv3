@@ -4,35 +4,18 @@
     <!--begin::Header-->
     <div class="card-header align-items-center border-0 mt-1">
       <h3 class="align-items-start flex-column">
-        <img id="subimgw2" alt="" src="media/icons/subtittle/signal.svg" />
-        <span id="tiw2" class="fw-bolder mb-2 text-dark"
-          >Localidades de referencia</span
-        >
+        <img id="subimgw2" alt="" src="media/icons/subtittle/gpsSignal.svg" />
+        <span id="tiw2" class="fw-bolder mb-2 text-dark">Localidades de referencia</span>
       </h3>
-      <div
-        class="card-toolbar"
-        data-bs-toggle="tooltip"
-        data-bs-placement="top"
-        data-bs-trigger="hover"
-      >
-        <a
-          href="#"
-          id="bAddreport"
-          class="btn btn-sm btn-light-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#kt_modal_invite_friends"
-        >
+      <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover">
+        <a href="#" id="bAddreport" class="btn btn-sm btn-light-primary" data-bs-toggle="modal"
+          data-bs-target="#kt_modal_invite_friends">
           <span class="svg-icon svg-icon-3">
             <inline-svg src="media/icons/duotune/arrows/arr075.svg" />
           </span>
           Agregar al reporte generado
         </a>
-        <a
-          href="#"
-          class="btn btn-sm btn-light-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#kt_modal_invite_friends"
-        >
+        <a href="#" class="btn btn-sm btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_invite_friends">
           <span class="svg-icon svg-icon-3">
             <inline-svg src="media/icons/duotune/arrows/arr075.svg" />
           </span>
@@ -47,9 +30,7 @@
       <!--begin::Table container-->
       <div class="table-responsive">
         <!--begin::Table-->
-        <table
-          class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4"
-        >
+        <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
           <!--begin::Table head-->
           <thead>
             <tr id="tabDash" class="fw-bolder text-muted">
@@ -66,42 +47,38 @@
           <tbody>
             <template v-for="(item, index) in list" :key="index">
               <tr>
-                <td></td>
+                <td>
+                  
+                    <select class="form-select" aria-label="Default select example">
+                      <option selected>Sin intensidad</option>
+                      <option value="1">I</option>
+                      <option value="2">II</option>
+                      <option value="3">IV</option>
+                    </select>
+
+                </td>
 
                 <td>
                   <div class="tabw9 pt-2 card-body">
-                    <span class="inline-block"
-                      >119 km al N de Sta. Maria De Nieva, Condorcanqui -
-                      Amazonas</span
-                    >
+                    <span class="inline-block">119 km al N de Sta. Maria De Nieva, Condorcanqui -
+                      Amazonas</span>
                   </div>
                 </td>
 
                 <td>
                   <div class="tabw9 pt-2 card-body">
                     <span>123456789</span>
-              
+
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-center form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="tablCheckw9"
-                    />
+                    <input class="form-check-input" type="checkbox" value="" id="tablCheckw9" />
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-center form-check">
-                    <input
-                      class="form-check-input"
-                      type="radio"
-                      name="radiobuttons"
-                      id="tablRadiow9"
-                      value="option1"
-                    />
+                    <input class="form-check-input" type="radio" name="radiobuttons" id="tablRadiow9" value="option1" />
                   </div>
                 </td>
               </tr>
@@ -137,7 +114,8 @@
                   </div>
                 </td>
 
---></template>
+-->
+</template>
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
@@ -251,9 +229,9 @@ export default defineComponent({
 #titabDash {
   color: #000000 !important;
 }
+
 .imw9 {
-  filter: invert(80%) sepia(39%) saturate(1000%) hue-rotate(186deg)
-    brightness(101%) contrast(101%);
+  filter: invert(80%) sepia(39%) saturate(1000%) hue-rotate(186deg) brightness(101%) contrast(101%);
 }
 
 .btnw9:hover {
@@ -265,27 +243,33 @@ export default defineComponent({
   background-color: #0000ff;
   color: #ffffff;
 }
+
 #tablCheckw9[type="checkbox"] {
   background-color: #f3f6f9;
 }
+
 #tablCheckw9[type="checkbox"]:checked {
   background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="%230000af" d="M5.5 11.5L2 8l1.5-1.5L5.5 8l5.5-5.5L13 3z"/></svg>');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 20px;
 }
+
 #tablRadiow9[type="radio"] {
   background-color: #f3f6f9;
 }
+
 #tablRadiow9[type="radio"]:checked {
   background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><circle cx="8" cy="8" r="4" fill="%230000af"/></svg>');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
 }
+
 #bAddreport {
   margin-right: 25px !important;
 }
+
 .tabw9 {
   display: flex;
   justify-content: center;
